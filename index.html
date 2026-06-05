@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Favicon for MaroX School -->
+<link rel="icon" type="image/svg+xml" 
+href="data:image/svg+xml,
+%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256'%3E
+%3Crect width='100%25' height='100%25' fill='%23001122'/%3E
+%3Ctext x='50%25' y='57%25' font-size='150' text-anchor='middle' fill='%23d4af37' font-family='Arial' font-weight='bold'%3EM%3C/text%3E
+%3C/svg%3E">
+
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MaroX School</title>
+
+<style>
+  .nav-register {
+    color: gold !important;
+    font-size: 22px;
+    font-weight: bold;
+    margin-left: 20px;
+    text-decoration: none;
+    padding: 5px 10px;
+    border: 2px solid gold;
+    border-radius: 8px;
+}
+
+.nav-register:hover {
+    background: gold;
+    color: black !important;
+}
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+
+  body {
+    background: #0b0b0b;
+    color: white;
+    scroll-behavior: smooth;
+  }
+
+  /* NAVBAR */
+  nav {
+    width: 100%;
+    padding: 20px 40px;
+    background: rgba(0, 0, 0, 0.75);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(10px);
+  }
+
+  nav .logo {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #d4a96b;
+  }
+
+  nav ul {
+    display: flex;
+    gap: 30px;
+  }
+
+  nav ul li {
+    list-style: none;
+  }
+
+  nav ul li a {
+    text-decoration: none;
+    color: #d4a96b;
+    font-size: 1.15rem;
+    font-weight: 600;
+    transition: 0.3s;
+  }
+
+  nav ul li a:hover {
+    color: white;
+  }
+
+  /* SECTIONS */
+  section {
+    padding: 120px 40px;
+    min-height: 100vh;
+    text-align: center;
+    position: relative;
+  }
+
+  section::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.55);
+    z-index: 1;
+  }
+
+  section * {
+    position: relative;
+    z-index: 2;
+  }
+
+  h2 {
+    color: #ffffff;
+    font-size: 2.4rem;
+    margin-bottom: 20px;
+  }
+
+  p {
+    font-size: 1.3rem;
+    max-width: 800px;
+    margin: auto;
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+  }
+
+  /* BACKGROUNDS */
+  #home {
+    background: url("https://vansd.org/wp-content/uploads/2016/10/HBHS-front.jpg")
+                center/cover no-repeat;
+  }
+
+  #about {
+    background: url("https://media.istockphoto.com/id/671176444/photo/group-of-elementary-students-learning-in-the-classroom.jpg?s=170667a&w=0&k=20&c=Ltiwp9dW2J2DOSt2EbN0bNJRSvHnjpL33H4k5-Zw0z8=")
+                center/cover no-repeat;
+  }
+
+  #classes {
+    background: url("https://th.bing.com/th/id/R.04a4b3b5a79dec857bd6df6b4c0826dc?rik=s882Fq9hHx3ZAw&riu=http%3a%2f%2fstatic1.squarespace.com%2fstatic%2f5e7948b7ccc868475c993f23%2f5e7e144e3ae6d4439b70efc7%2f5fa9b195b874e907d3138d1e%2f1604959322309%2f01_14_2019_CORNERSTONE%2bACADEMY_GP%2b(86).JPG%3fformat%3d1500w&ehk=AjW78tblTjt%2fltQ%2fkcbzXXJRiSSR8Xzxy27ISJjDxqo%3d&risl=&pid=ImgRaw&r=0")
+                center/cover no-repeat;
+  }
+
+  #contact {
+    background: url("https://i.pinimg.com/736x/a6/f2/03/a6f20345bca44da0101e22571e5651f7.jpg")
+                center/cover no-repeat;
+  }
+
+  /* HOME */
+  .home-content {
+    animation: slideDown 1.2s ease forwards;
+    opacity: 0;
+    margin-top: 100px;
+  }
+
+  .home-content h1 {
+    font-size: 6rem;
+  }
+
+  /* CARDS */
+  .cards {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+  }
+
+  .card {
+    width: 260px;
+    padding: 25px;
+    border-radius: 10px;
+    background: rgba(20,20,20,0.85);
+    border: 2px solid #d4a96b;
+    transition: 0.3s;
+    opacity: 0;
+    animation: fadeUp 1s ease forwards;
+    backdrop-filter: blur(4px);
+  }
+
+  .card:hover {
+    transform: translateY(-8px);
+    background: rgba(30,30,30,0.9);
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideDown {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  @keyframes fadeUp {
+    from { transform: translateY(40px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+/* CLICKABLE CARDS FIX */
+.card {
+  position: relative !important;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.click-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="logo">Omar School</div>
+  <ul>
+    <li><a href="registration.html" class="nav-register">Register</a></li>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#classes">Classes</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+
+<!-- HOME -->
+<section id="home">
+  <div class="home-content">
+    <h1>Welcome to Omar School</h1>
+    <p>Modern education for a new generation.</p>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <h2>About Us</h2>
+  <p>
+    Omar School provides elite education with modern learning methods,
+    inspiring students to grow academically and creatively.
+  </p>
+</section>
+
+<!-- CLASSES -->
+<!-- CLASSES -->
+<!-- FACILITIES WITH IMAGES -->
+<!-- FACILITIES WITH IMAGES -->
+<section id="classes">
+  <h2>Our Facilities</h2>
+
+  <div class="cards">
+
+    <div class="card">
+      <a href="classroom.html" class="click-layer"></a>
+      <img src="https://images.unsplash.com/photo-1596495577886-d920f1fb7238" style="width:100%; border-radius:8px; margin-bottom:12px;">
+      <h3>Standard Classroom</h3>
+      <p>Modern desks, clean environment, and digital teaching screens.</p>
+    </div>
+
+    <div class="card">
+      <a href="lap.html" class="click-layer"></a>
+      <img src="https://th.bing.com/th/id/R.788932d2f7d13563ffd41d05687ad593?rik=KCyggNp8hiF4eQ&pid=ImgRaw&r=0" style="width:100%; border-radius:8px; margin-bottom:12px;">
+      <h3>Science Lab</h3>
+      <p>Fully equipped for chemistry, biology & physics experiments.</p>
+    </div>
+
+    <div class="card">
+      <a href="computer.html" class="click-layer"></a>
+      <img src="https://i.pinimg.com/originals/b8/50/b2/b850b204aa2627b3ee98224891da3f9f.jpg" style="width:100%; border-radius:8px; margin-bottom:12px;">
+      <h3>Computer Lab</h3>
+      <p>High-speed PCs, programming, and digital learning systems.</p>
+    </div>
+
+    <div class="card">
+      <a href="library.html" class="click-layer"></a>
+      <img src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da" style="width:100%; border-radius:8px; margin-bottom:12px;">
+      <h3>Library</h3>
+      <p>Quiet study space with hundreds of books & learning resources.</p>
+    </div>
+
+    <div class="card">
+      <a href="football.html" class="click-layer"></a>
+      <img src="https://th.bing.com/th/id/R.42d5aa00fc452261240ff1694d6f2375?rik=N7lxYfGQYqcX%2fw&pid=ImgRaw&r=0" style="width:100%; border-radius:8px; margin-bottom:12px;">
+      <h3>Football Field</h3>
+      <p>Full-size training field for school tournaments and matches.</p>
+    </div>
+
+    <div class="card">
+      <a href="basketball.html" class="click-layer"></a>
+      <img src="https://img.freepik.com/premium-photo/high-school-basketball-court-design_636537-112881.jpg" style="width:100%; border-radius:8px; margin-bottom:12px;">
+      <h3>Basketball Court</h3>
+      <p>Indoor & outdoor courts for training and competitions.</p>
+    </div>
+
+    <div class="card">
+      <a href="toilet.html" class="click-layer"></a>
+      <img src="https://images.squarespace-cdn.com/content/v1/6481bdb4217c543c6ce52897/1690990926549-7EZ61MO13Y8DWONGB3MF/unisex+staff+toilets+with+woodgrain+doors+and+vanity+units+at+collingwood+college.jpg" style="width:100%; border-radius:8px; margin-bottom:12px;">
+      <h3>Restrooms</h3>
+      <p>Clean, sanitized, and well-maintained facilities.</p>
+    </div>
+
+    <div class="card">
+      <a href="art.html" class="click-layer"></a>
+      <img src="https://th.bing.com/th/id/R.3380ff07ec14468f47d32061c914ecfb?rik=K2SAQkPHSP6y8Q&riu=http%3a%2f%2fthislittleclassofmine.weebly.com%2fuploads%2f1%2f7%2f9%2f0%2f17901465%2f4151982_orig.jpg&ehk=UpxFtprovMhMMxLRwqpcOP9UkuxbWXJwfWYUfhnDhXA%3d&risl=&pid=ImgRaw&r=0" style="width:100%; border-radius:8px; margin-bottom:12px;">
+      <h3>Art Room</h3>
+      <p>Painting, drawing, crafts, and creative workshops.</p>
+    </div>
+
+    <div class="card">
+      <a href="music.html" class="click-layer"></a>
+      <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d" style="width:100%; border-radius:8px; margin-bottom:12px;">
+      <h3>Music Room</h3>
+      <p>Instruments available for practice and performance.</p>
+    </div>
+
+    <div class="card">
+      <a href="theater.html" class="click-layer"></a>
+      <img src="https://img.freepik.com/premium-photo/school-stage-with-set-theater-stage-props-s_1169880-173181.jpg" style="width:100%; border-radius:8px; margin-bottom:12px;">
+      <h3>Theater / Stage</h3>
+      <p>A fully equipped stage for events, performances, and shows.</p>
+    </div>
+
+  </div>
+</section>
+
+
+
+  </div>
+</section>
+
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2>Contact Us</h2>
+  <p>Email: omarbuisness4@gmail.com</p>
+  <p>Phone: +20 1207878060</p>
+</section>
+
+</body>
+</html>
+
+

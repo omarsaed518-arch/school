@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Favicon for Omar School -->
+<link rel="icon" type="image/svg+xml" 
+href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256'%3E%3Crect width='100%25' height='100%25' fill='%23001122'/%3E%3Ctext x='50%25' y='57%25' font-size='150' text-anchor='middle' fill='%23d4af37' font-family='Arial' font-weight='bold'%3EM%3C/text%3E%3C/svg%3E">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>School Registration - Omar School</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial;
+        background: #111;
+        color: white;
+    }
+
+    header {
+        background: linear-gradient(to right, #001f3f, #003366);
+        padding: 40px;
+        text-align: center;
+        color: gold;
+        font-size: 40px;
+        font-weight: bold;
+    }
+
+    .container {
+        width: 90%;
+        max-width: 550px;
+        margin: 50px auto;
+        background: #1a1a1a;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.25);
+    }
+
+    h2 {
+        color: gold;
+        text-align: center;
+        font-size: 30px;
+        margin-bottom: 20px;
+    }
+
+    label {
+        font-size: 18px;
+        font-weight: bold;
+        color: gold;
+        display: block;
+        margin-top: 20px;
+    }
+
+    input, select {
+        width: 100%;
+        padding: 12px;
+        border-radius: 10px;
+        border: none;
+        margin-top: 8px;
+        font-size: 16px;
+        background: #222;
+        color: white;
+        outline: none;
+        border: 1px solid #333;
+    }
+
+    input:focus, select:focus {
+        border: 1px solid gold;
+    }
+
+    .btn {
+        width: 100%;
+        margin-top: 30px;
+        padding: 14px;
+        background: gold;
+        border: none;
+        border-radius: 10px;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        color: black;
+        transition: 0.3s;
+    }
+
+    .btn:hover {
+        background: #ffdb4d;
+    }
+
+    .back {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .back a {
+        color: gold;
+        text-decoration: none;
+        font-size: 18px;
+    }
+
+</style>
+</head>
+
+<body>
+
+<header>Omar School — Registration</header>
+
+<div class="container">
+    <h2>Student Registration Form</h2>
+<form onsubmit="sendWhatsApp(); return false;">
+
+    <label>Student Name</label>
+    <input type="text" id="name" required>
+
+    <label>Age</label>
+    <input type="number" id="age" required>
+
+    <label>Grade Level</label>
+    <select id="grade" required>
+        <option value="">Select Grade</option>
+
+        <option>KG 1</option>
+        <option>KG 2</option>
+
+        <option>Primary 1</option>
+        <option>Primary 2</option>
+        <option>Primary 3</option>
+        <option>Primary 4</option>
+        <option>Primary 5</option>
+        <option>Primary 6</option>
+
+        <option>Preparatory 1</option>
+        <option>Preparatory 2</option>
+        <option>Preparatory 3</option>
+
+        <option>Secondary 1</option>
+        <option>Secondary 2</option>
+        <option>Secondary 3</option>
+    </select>
+
+    <label>Parent Phone</label>
+    <input type="text" id="parent" required>
+
+    <label>Email Address</label>
+    <input type="email" id="email" required>
+
+    <button class="btn">Submit Registration</button>
+</form>
+
+<script>
+function sendWhatsApp() {
+    let name = document.getElementById("name").value;
+    let age = document.getElementById("age").value;
+    let grade = document.getElementById("grade").value;
+    let parent = document.getElementById("parent").value;
+    let email = document.getElementById("email").value;
+
+    let message =
+        "New Student Registration:%0A%0A" +
+        "Student Name: " + name + "%0A" +
+        "Age: " + age + "%0A" +
+        "Grade Level: " + grade + "%0A" +
+        "Parent Phone: " + parent + "%0A" +
+        "Email: " + email;
+
+    // رقم ولي أمر المدرسة — ضع رقمك هنا
+    let phone = "201207878060"; // ← غيره لرقمك (بدون +)
+
+    let url = "https://wa.me/" + phone + "?text=" + message;
+
+    window.open(url, "_blank").focus();
+}
+</script>
+
+
+    <div class="back">
+        <a href="index.html#home">⬅ Back</a>
+    </div>
+
+</div>
+
+</body>
+</html>
